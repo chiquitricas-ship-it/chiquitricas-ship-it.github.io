@@ -1,4 +1,4 @@
-name: Publish reviewed NetGuard interface
+name: Publish reviewed MAC-D interface
 on:
   push:
     branches: [main]
@@ -21,13 +21,13 @@ jobs:
       - name: Verify reviewed static package
         run: |
           unzip site.zip -d bundle
-          echo '7885204410619fce0ce9030725e7ead35db05b9bc162d204a2b3bf3e72a5f8d7  bundle/artifact.tar' | sha256sum -c -
+          echo 'a1181338f98c59b0bdb4d34bcdee13e640e9a3417a975d0f2bfc613a7e332e9b  bundle/artifact.tar' | sha256sum -c -
       - name: Prepare public files
         run: |
           mkdir -p public/netguard
           tar -xf bundle/artifact.tar -C public/netguard
           touch public/.nojekyll
-          printf '%s' '<!doctype html><html lang="pt-BR"><meta charset="utf-8"><meta http-equiv="refresh" content="0;url=/netguard/"><title>NetGuard</title><a href="/netguard/">Abrir NetGuard</a></html>' > public/index.html
+          printf '%s' '<!doctype html><html lang="pt-BR"><meta charset="utf-8"><meta http-equiv="refresh" content="0;url=/netguard/"><title>MAC-D</title><a href="/netguard/">Abrir MAC-D</a></html>' > public/index.html
           cp public/netguard/404.html public/404.html
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
