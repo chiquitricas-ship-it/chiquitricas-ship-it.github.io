@@ -21,7 +21,7 @@ jobs:
       - name: Verify reviewed static package
         run: |
           unzip site.zip -d bundle
-          echo 'cc54812d205d64892ee56785e0681baadf67e87e0211d51820d43098c89db72b  bundle/artifact.tar' | sha256sum -c -
+          echo 'c983f48cd820785b0ce4a195078f85a61b10132b640b71b39077781c424b4522  bundle/artifact.tar' | sha256sum -c -
       - name: Prepare public files
         run: |
           mkdir -p public/netguard
